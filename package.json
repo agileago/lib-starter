@@ -1,0 +1,92 @@
+{
+  "name": "lib-starter",
+  "version": "0.0.1",
+  "main": "dist/lib-starter.cjs.js",
+  "module": "dist/lib-starter.es.js",
+  "types": "types/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/lib-starter.es.js",
+      "require": "./dist/lib-starter.cjs.js"
+    }
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build && rimraf types && tsc --build tsconfig.build.json",
+    "serve": "vite preview",
+    "type:check": "tsc --noEmit --skipLibCheck",
+    "commit": "cz-customizable",
+    "lint": "eslint --fix .",
+    "format": "prettier --write '**/*.{ts,tsx,js,vue,css,scss,html,json}'",
+    "chrome": "open -n /Applications/Google\\ Chrome.app/ --args --disable-web-security  --user-data-dir=$HOME/MyChromeDevUserData/",
+    "release": "standard-version",
+    "github:release": "conventional-github-releaser -p angular",
+    "prepublishOnly": "run-s build release",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:serve": "vitepress serve docs"
+  },
+  "files": [
+    "dist",
+    "types",
+    "package.json"
+  ],
+  "author": {
+    "name": "agileago",
+    "email": "agileago@gmail.com"
+  },
+  "keywords": [
+    "lib starter"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/agileago/lib-starter.git"
+  },
+  "homepage": "https://agileago.github.io/lib-starter",
+  "license": "MIT",
+  "devDependencies": {
+    "@commitlint/cli": "^16.0.0",
+    "@nexhome/yorkie": "^2.0.8",
+    "@types/markdown-it": "^12.2.3",
+    "@types/prettier": "^2.4.2",
+    "@typescript-eslint/eslint-plugin": "^5.8.0",
+    "@typescript-eslint/parser": "^5.8.0",
+    "@vue3-oop/plugin-vue-jsx": "^1.3.5",
+    "commitizen": "^4.2.4",
+    "commitlint-config-cz": "^0.13.3",
+    "conventional-github-releaser": "^3.1.5",
+    "cz-customizable": "^6.3.0",
+    "eslint": "^8.5.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "lint-staged": "^12.1.4",
+    "markdown-it-codetabs": "^1.2.0",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.5.1",
+    "rimraf": "^3.0.2",
+    "sass": "^1.45.1",
+    "standard-version": "^9.3.2",
+    "tslib": "^2.3.1",
+    "typescript": "^4.5.4",
+    "vite": "^2.7.7",
+    "vitepress": "^0.20.10",
+    "vue": "^3.2.26"
+  },
+  "gitHooks": {
+    "pre-commit": "lint-staged",
+    "commit-msg": "commitlint -E GIT_PARAMS"
+  },
+  "lint-staged": {
+    "*.{ts,tsx,vue,js}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{css,scss,html,json}": [
+      "prettier --write"
+    ]
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org",
+    "access": "public"
+  }
+}
