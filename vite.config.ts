@@ -12,7 +12,7 @@ export default defineConfig(({ command, mode }) => {
         entry: 'src/index.ts',
         name: pkg.name,
         fileName: pkg.name,
-        formats: ['es'],
+        formats: ['es', 'cjs'],
       },
       rollupOptions: {
         external: ['tslib'],

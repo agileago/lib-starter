@@ -6,7 +6,6 @@
     "dev": "vite"
   },
   "dependencies": {
-    "lib-starter": "workspace:*",
     "typescript": "^4.6.3",
     "vue": "^3.2.33",
     "vue-router": "^4.0.14"
