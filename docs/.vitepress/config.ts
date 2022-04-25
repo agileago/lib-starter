@@ -1,9 +1,5 @@
 import type { UserConfig } from 'vitepress'
-// @ts-ignore
-import codetabs from 'markdown-it-codetabs'
-import type MarkdownIt from 'markdown-it'
 import pkg from '../../package.json'
-
 
 const config: UserConfig = {
   base: `/${pkg.name}/`,
@@ -11,9 +7,6 @@ const config: UserConfig = {
   description: 'lib starter 介绍',
   markdown: {
     lineNumbers: false,
-    config(md: MarkdownIt) {
-      md.use(codetabs)
-    },
   },
   themeConfig: {
     nav: [
@@ -31,9 +24,7 @@ const config: UserConfig = {
       '/guide/': [
         {
           text: '介绍',
-          children: [
-            { text: '使用指南', link: '/guide/' },
-          ],
+          children: [{ text: '使用指南', link: '/guide/' }],
         },
       ],
     },
