@@ -1,2 +1,16 @@
 # 库模板
-1. 修改库的名字 搜索 lib-starter 统一替换
+
+全局搜索 `lib-starter` 替换为你要写的库名称
+
+## 开发
+
+```shell
+pnpm install
+pnpm dev
+```
+
+## 发布
+
+```shell
+pnpm publish
+```

@@ -1,30 +1,21 @@
 import { defineConfig } from 'vite'
-import vueJsx from '@vue3-oop/plugin-vue-jsx'
 import pkg from './package.json'
+import dtsPlugin from 'vite-plugin-dts'
+import tsconfigPaths from 'vite-tsconfig-paths'
 
 export default defineConfig(({ command, mode }) => {
   return {
-    plugins: command === 'build' ? undefined : [vueJsx()],
-    resolve: {
-      alias: [
-        { find: /^~/, replacement: '' },
-        { find: '@/', replacement: '/src/' },
-        { find: 'lib-starter', replacement: '/src/' },
-      ],
-    },
-    server: {
-      open: '/',
-    },
+    plugins: [dtsPlugin({ outputDir: 'types' }), tsconfigPaths()],
     build: {
       target: 'es2015',
       lib: {
         entry: 'src/index.ts',
         name: pkg.name,
-        fileName: (format) => `${pkg.name}.${format}.js`,
-        formats: ['es', 'cjs'],
+        fileName: pkg.name,
+        formats: ['es'],
       },
       rollupOptions: {
-        external: [],
+        external: ['tslib'],
       },
       sourcemap: true,
       minify: false,
