@@ -14,14 +14,15 @@
   "scripts": {
     "dev": "pnpm --filter=playground dev",
     "build": "vite build",
-    "test": "vitest",
+    "test:dev": "vitest",
+    "test": "vitest run",
     "coverage": "vitest run --coverage",
     "type:check": "tsc --noEmit",
     "lint": "eslint --fix .",
     "format": "prettier --write '**/*.{ts,tsx,js,css,scss,html,json}'",
     "chrome": "open -n /Applications/Google\\ Chrome.app/ --args --disable-web-security  --user-data-dir=$HOME/MyChromeDevUserData/",
     "release": "release-it",
-    "prepublishOnly": "run-s build release",
+    "prepublishOnly": "run-s test build release",
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
     "docs:serve": "vitepress serve docs"
