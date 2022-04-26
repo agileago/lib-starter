@@ -20,7 +20,6 @@
     "type:check": "tsc --noEmit",
     "lint": "eslint --fix .",
     "format": "prettier --write '**/*.{ts,tsx,js,css,scss,html,json}'",
-    "chrome": "open -n /Applications/Google\\ Chrome.app/ --args --disable-web-security  --user-data-dir=$HOME/MyChromeDevUserData/",
     "release": "release-it",
     "prepublishOnly": "run-s test build release",
     "docs:dev": "vitepress dev docs",
@@ -82,6 +81,11 @@
     ],
     "*.{css,scss,html,json}": [
       "prettier --write"
+    ]
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
     ]
   },
   "publishConfig": {
