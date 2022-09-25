@@ -24,6 +24,5 @@
     "paths": {
       "lib-starter": ["src"]
     }
-  },
-  "include": ["src", "test", "vite.config.ts", "package.json"]
+  }
 }

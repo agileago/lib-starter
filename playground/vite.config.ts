@@ -4,4 +4,7 @@ import checker from 'vite-plugin-checker'
 
 export default defineConfig({
   plugins: [tsconfigPaths(), checker({ typescript: true })],
+  server: {
+    host: true,
+  },
 })
