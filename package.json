@@ -1,13 +1,13 @@
 {
   "name": "lib-starter",
   "version": "0.0.1",
-  "main": "dist/lib-starter.cjs.js",
-  "module": "dist/lib-starter.es.js",
+  "main": "dist/lib-starter.js",
+  "module": "dist/lib-starter.mjs",
   "types": "types/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/lib-starter.es.js",
-      "require": "./dist/lib-starter.cjs.js"
+      "import": "./dist/lib-starter.js",
+      "require": "./dist/lib-starter.mjs"
     },
     "./*": "./*"
   },
